@@ -7,16 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1a001f, #2b0033, #140018);
-    color: #fff;
+    background: linear-gradient(135deg, #1a001f, #2d0036, #140018);
+    color: white;
     text-align: center;
     overflow-x: hidden;
 }
 
-/* Intro Screen */
+/* INTRO SCREEN */
+
 #intro {
     position: fixed;
     width: 100%;
@@ -32,7 +34,6 @@ body {
 #intro h1 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
-    letter-spacing: 2px;
     margin-bottom: 10px;
 }
 
@@ -41,9 +42,9 @@ body {
     padding: 12px 20px;
     border-radius: 30px;
     border: none;
-    outline: none;
     width: 200px;
     text-align: center;
+    outline: none;
 }
 
 #intro button {
@@ -62,6 +63,8 @@ body {
     transform: scale(1.05);
 }
 
+/* SECTIONS */
+
 .section {
     padding: 100px 20px;
     animation: fadeIn 1.5s ease-in;
@@ -74,8 +77,7 @@ body {
 
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 50px;
-    margin-bottom: 20px;
+    font-size: 48px;
 }
 
 h2 {
@@ -87,26 +89,65 @@ h2 {
     opacity: 0.9;
 }
 
-/* Gallery */
-.gallery {
+/* OPEN LETTER MEMORY STYLE */
+
+.love-letters {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
 }
 
-.gallery img {
+.letter {
     width: 260px;
-    margin: 15px;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(255, 0, 120, 0.3);
-    transition: 0.4s;
+    cursor: pointer;
+    transition: 0.6s ease;
 }
 
-.gallery img:hover {
-    transform: scale(1.07);
+.letter-img {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    transition: 0.6s;
 }
 
-/* Secret Button */
+.letter-img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.letter-note {
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin-top: 15px;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 1.7;
+    transition: 0.6s ease;
+    opacity: 0;
+}
+
+.letter.open .letter-note {
+    max-height: 300px;
+    padding: 20px;
+    opacity: 1;
+}
+
+.letter.open .letter-img {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(255, 0, 120, 0.4);
+}
+
+.letter:hover .letter-img {
+    transform: scale(1.03);
+}
+
+/* SECRET BUTTON */
+
 .secret-btn {
     margin-top: 40px;
     padding: 14px 35px;
@@ -123,7 +164,8 @@ h2 {
     color: white;
 }
 
-/* Hidden Message */
+/* SECRET MESSAGE */
+
 .hidden-message {
     display: none;
     padding: 120px 20px;
@@ -135,7 +177,8 @@ h2 {
     opacity: 0.7;
 }
 
-/* Floating Hearts */
+/* FLOATING HEARTS */
+
 .heart {
     position: fixed;
     bottom: -50px;
@@ -147,13 +190,16 @@ h2 {
     0% { transform: translateY(0); opacity: 0.6; }
     100% { transform: translateY(-100vh); opacity: 0; }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- INTRO -->
+
 <div id="intro">
-    <h1>For My Baby Bean</h1>
+    <h1>For My Baby Bean 🤍</h1>
     <p>Enter the password</p>
     <input type="password" id="password" placeholder="Password">
     <button onclick="unlock()">Enter</button>
@@ -166,7 +212,7 @@ h2 {
 <div id="content" style="display:none;">
 
 <div class="section">
-    <h1>Hi Baby Bean 🤍</h1>
+    <h1>Hi Baby Bean 🌸</h1>
     <h2>This little world belongs only to you.</h2>
 </div>
 
@@ -180,36 +226,65 @@ h2 {
     </h2>
 </div>
 
-<div class="section gallery">
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
+<!-- OPEN LETTER MEMORIES -->
+
+<div class="section love-letters">
+
+    <div class="letter" onclick="this.classList.toggle('open')">
+        <div class="letter-img">
+            <img src="photo1.jpg">
+        </div>
+        <div class="letter-note">
+            This was the moment I realized…
+            I don’t just smile because of you.
+            I feel safe with you.
+            And that means everything to me.
+        </div>
+    </div>
+
+    <div class="letter" onclick="this.classList.toggle('open')">
+        <div class="letter-img">
+            <img src="photo2.jpg">
+        </div>
+        <div class="letter-note">
+            You pretend to be tough sometimes,
+            but I see your softness.
+            And it’s my favorite part of you.
+        </div>
+    </div>
+
+    <div class="letter" onclick="this.classList.toggle('open')">
+        <div class="letter-img">
+            <img src="photo3.jpg">
+        </div>
+        <div class="letter-note">
+            If you ever wonder what you mean to me —
+            it’s this:
+            You feel like home.
+            And I never want to lose that.
+        </div>
+    </div>
+
 </div>
 
 <div class="section">
-    <h2>
-        I love your softness.<br>
-        I love your stubbornness.<br>
-        I love the way you look at me<br>
-        when you think I’m not noticing.<br><br>
-        You are more than you think.<br>
-        And I see it.
-    </h2>
-</div>
-
-<div class="section">
-    <button class="secret-btn" onclick="reveal()">Baby Bean, don’t press this.</button>
+    <button class="secret-btn" onclick="reveal()">Baby Bean, don’t press this 💌</button>
 </div>
 
 <div id="secret" class="hidden-message">
     <h1>Happy Valentine’s Day ❤️</h1>
-    <h2>Thank you for saying yes to the Icecream.</h2>
+    <h2>
+        Thank you for saying yes to the ice cream.
+        Thank you for choosing me.
+        And thank you for being you.
+    </h2>
     <div class="signature">— Yours, Chakliii</div>
 </div>
 
 </div>
 
 <script>
+
 function unlock() {
     const pass = document.getElementById("password").value;
     if(pass === "201225") {
@@ -238,7 +313,9 @@ function startHearts() {
         setTimeout(() => heart.remove(), 8000);
     }, 900);
 }
+
 </script>
 
 </body>
 </html>
+
