@@ -70,7 +70,7 @@ body {
     transform: scale(1.05);
 }
 
-/* FADE IN SECTIONS */
+/* SECTIONS */
 
 .section {
     padding: 120px 20px;
@@ -104,9 +104,9 @@ h2 {
     line-height: 1.9;
 }
 
-/* OPEN LETTERS */
+/* LETTERS */
 
-.love-letters {
+.memory-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,6 +186,12 @@ h2 {
     opacity: 0.8;
 }
 
+.extra-line {
+    margin-top: 20px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
 /* FLOATING HEARTS */
 
 .heart {
@@ -219,7 +225,7 @@ h2 {
 <div id="content" style="display:none;">
 
 <div class="section">
-    <h1>Hi, my love.</h1>
+    <h1>Hi.</h1>
     <h2>
         Before you scroll…<br>
         I just need you to know something.
@@ -232,22 +238,23 @@ h2 {
         You softened it.<br>
         You steadied it.<br>
         You made it warmer.<br><br>
-        And I didn’t even realize how much I needed you
-        until you were already my favorite part of every day.
+        And I didn’t even realize how much I needed that
+        until you became the calm in my everyday chaos.
     </h2>
 </div>
 
-<div class="section love-letters">
+<div class="section memory-section">
 
     <div class="letter" onclick="this.classList.toggle('open')">
         <div class="letter-img">
-            <img src="photo1.jpg">
+            <img src="photo3.jpg">
         </div>
         <div class="letter-note">
             This moment right here…
             I remember it so clearly.
             I remember thinking,
             “Please let this stay.”
+            I didn’t want time to move.
         </div>
     </div>
 
@@ -260,18 +267,18 @@ h2 {
             Even when you act strong.
             Even when you pretend you don’t care.
             I see it.
-            And I love it.
+            And it means more than you know.
         </div>
     </div>
 
     <div class="letter" onclick="this.classList.toggle('open')">
         <div class="letter-img">
-            <img src="photo3.jpg">
+            <img src="photo1.jpg">
         </div>
         <div class="letter-note">
             If someday you ever doubt yourself,
             read this again.
-            You are loved.
+            You matter.
             Deeply.
             Genuinely.
             Completely.
@@ -288,21 +295,22 @@ h2 {
     <h1>Happy Valentine’s Day ❤️</h1>
     <h2>
         Thank you for choosing me.<br>
-        Thank you for being you.<br><br>
+        Thank you for being exactly who you are.<br>
+        Thank you for saying yes to the icecream.<br><br>
         If I could choose again,
         in every lifetime,
         I’d still choose you.
     </h2>
-    <div class="signature">— Yours, always.</div>
+    <div class="signature">— Yours, Chakliii</div>
+    <div class="extra-line">Jaldi pachi aai maru jadiyu padiyu Chaklu 🤍</div>
 </div>
 
 </div>
 
 <script>
-
 function unlock() {
     const pass = document.getElementById("password").value;
-    if(pass === "icecream") {
+    if(pass === "201225") {
         document.getElementById("intro").style.display = "none";
         document.getElementById("content").style.display = "block";
         document.getElementById("bgMusic").play();
@@ -328,7 +336,6 @@ function startHearts() {
         setTimeout(() => heart.remove(), 9000);
     }, 900);
 }
-
 </script>
 
 </body>
