@@ -11,13 +11,21 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1a001f, #2d0036, #140018);
+    background: linear-gradient(-45deg, #1a001f, #2d0036, #140018, #2b002e);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
     color: white;
     text-align: center;
     overflow-x: hidden;
 }
 
-/* INTRO SCREEN */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* INTRO */
 
 #intro {
     position: fixed;
@@ -34,7 +42,6 @@ body {
 #intro h1 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
-    margin-bottom: 10px;
 }
 
 #intro input {
@@ -63,43 +70,51 @@ body {
     transform: scale(1.05);
 }
 
-/* SECTIONS */
+/* FADE IN SECTIONS */
 
 .section {
-    padding: 100px 20px;
-    animation: fadeIn 1.5s ease-in;
+    padding: 120px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 2s forwards;
 }
 
+.section:nth-child(1) { animation-delay: 1s; }
+.section:nth-child(2) { animation-delay: 2s; }
+.section:nth-child(3) { animation-delay: 3s; }
+.section:nth-child(4) { animation-delay: 4s; }
+
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px);}
-    to { opacity: 1; transform: translateY(0);}
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 48px;
+    font-size: 50px;
 }
 
 h2 {
     font-weight: 300;
     font-size: 22px;
-    max-width: 700px;
+    max-width: 750px;
     margin: auto;
-    line-height: 1.8;
-    opacity: 0.9;
+    line-height: 1.9;
 }
 
-/* OPEN LETTER MEMORY STYLE */
+/* OPEN LETTERS */
 
 .love-letters {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
+    gap: 80px;
 }
 
 .letter {
-    width: 260px;
+    width: 270px;
     cursor: pointer;
     transition: 0.6s ease;
 }
@@ -108,7 +123,7 @@ h2 {
     background: white;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     transition: 0.6s;
 }
 
@@ -121,38 +136,34 @@ h2 {
     max-height: 0;
     overflow: hidden;
     background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border-radius: 15px;
     margin-top: 15px;
-    padding: 0 20px;
-    font-size: 16px;
-    line-height: 1.7;
-    transition: 0.6s ease;
+    padding: 0 25px;
+    font-size: 17px;
+    line-height: 1.9;
+    transition: 0.7s ease;
     opacity: 0;
 }
 
 .letter.open .letter-note {
-    max-height: 300px;
-    padding: 20px;
+    max-height: 400px;
+    padding: 25px;
     opacity: 1;
 }
 
 .letter.open .letter-img {
     transform: scale(1.05);
-    box-shadow: 0 25px 60px rgba(255, 0, 120, 0.4);
+    box-shadow: 0 30px 80px rgba(255, 0, 150, 0.4);
 }
 
-.letter:hover .letter-img {
-    transform: scale(1.03);
-}
-
-/* SECRET BUTTON */
+/* SECRET */
 
 .secret-btn {
-    margin-top: 40px;
-    padding: 14px 35px;
-    background: transparent;
+    margin-top: 60px;
+    padding: 15px 40px;
     border: 2px solid #ff4d88;
+    background: transparent;
     color: #ff4d88;
     border-radius: 30px;
     cursor: pointer;
@@ -164,17 +175,15 @@ h2 {
     color: white;
 }
 
-/* SECRET MESSAGE */
-
 .hidden-message {
     display: none;
-    padding: 120px 20px;
+    padding: 150px 20px;
 }
 
 .signature {
-    margin-top: 40px;
+    margin-top: 50px;
     font-style: italic;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 /* FLOATING HEARTS */
@@ -182,8 +191,8 @@ h2 {
 .heart {
     position: fixed;
     bottom: -50px;
-    animation: floatUp 8s linear infinite;
-    opacity: 0.6;
+    animation: floatUp 9s linear infinite;
+    opacity: 0.5;
 }
 
 @keyframes floatUp {
@@ -195,8 +204,6 @@ h2 {
 </head>
 
 <body>
-
-<!-- INTRO -->
 
 <div id="intro">
     <h1>For My Baby Bean 🤍</h1>
@@ -212,21 +219,23 @@ h2 {
 <div id="content" style="display:none;">
 
 <div class="section">
-    <h1>Hi Baby Bean 🌸</h1>
-    <h2>This little world belongs only to you.</h2>
+    <h1>Hi, my love.</h1>
+    <h2>
+        Before you scroll…<br>
+        I just need you to know something.
+    </h2>
 </div>
 
 <div class="section">
     <h2>
-        Somewhere between random laughter,<br>
-        comfort, and chaos…<br><br>
-        you became my peace.<br>
-        My favourite feeling.<br>
-        The place I feel most at home.
+        You didn’t just walk into my life.<br><br>
+        You softened it.<br>
+        You steadied it.<br>
+        You made it warmer.<br><br>
+        And I didn’t even realize how much I needed you
+        until you were already my favorite part of every day.
     </h2>
 </div>
-
-<!-- OPEN LETTER MEMORIES -->
 
 <div class="section love-letters">
 
@@ -235,10 +244,10 @@ h2 {
             <img src="photo1.jpg">
         </div>
         <div class="letter-note">
-            This was the moment I realized…
-            I don’t just smile because of you.
-            I feel safe with you.
-            And that means everything to me.
+            This moment right here…
+            I remember it so clearly.
+            I remember thinking,
+            “Please let this stay.”
         </div>
     </div>
 
@@ -247,9 +256,11 @@ h2 {
             <img src="photo2.jpg">
         </div>
         <div class="letter-note">
-            You pretend to be tough sometimes,
-            but I see your softness.
-            And it’s my favorite part of you.
+            You have this softness about you.
+            Even when you act strong.
+            Even when you pretend you don’t care.
+            I see it.
+            And I love it.
         </div>
     </div>
 
@@ -258,27 +269,31 @@ h2 {
             <img src="photo3.jpg">
         </div>
         <div class="letter-note">
-            If you ever wonder what you mean to me —
-            it’s this:
-            You feel like home.
-            And I never want to lose that.
+            If someday you ever doubt yourself,
+            read this again.
+            You are loved.
+            Deeply.
+            Genuinely.
+            Completely.
         </div>
     </div>
 
 </div>
 
 <div class="section">
-    <button class="secret-btn" onclick="reveal()">Baby Bean, don’t press this 💌</button>
+    <button class="secret-btn" onclick="reveal()">One last thing… 💌</button>
 </div>
 
 <div id="secret" class="hidden-message">
     <h1>Happy Valentine’s Day ❤️</h1>
     <h2>
-        Thank you for saying yes to the ice cream.
-        Thank you for choosing me.
-        And thank you for being you.
+        Thank you for choosing me.<br>
+        Thank you for being you.<br><br>
+        If I could choose again,
+        in every lifetime,
+        I’d still choose you.
     </h2>
-    <div class="signature">— Yours, Chakliii</div>
+    <div class="signature">— Yours, always.</div>
 </div>
 
 </div>
@@ -287,7 +302,7 @@ h2 {
 
 function unlock() {
     const pass = document.getElementById("password").value;
-    if(pass === "201225") {
+    if(pass === "icecream") {
         document.getElementById("intro").style.display = "none";
         document.getElementById("content").style.display = "block";
         document.getElementById("bgMusic").play();
@@ -310,7 +325,7 @@ function startHearts() {
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.fontSize = (15 + Math.random() * 20) + "px";
         document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 8000);
+        setTimeout(() => heart.remove(), 9000);
     }, 900);
 }
 
@@ -318,4 +333,3 @@ function startHearts() {
 
 </body>
 </html>
-
